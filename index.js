@@ -1,6 +1,6 @@
 import {placeholderPropertyObj} from './properties/placeholderPropertyObj'
 import {propertyForSaleArr} from './properties/propertyForSaleArr'
-
+console.log(placeholderPropertyObj)
 function getPropertyHtml() {
 /*
 SUPER CHALLENGE 💪
