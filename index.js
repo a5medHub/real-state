@@ -1,14 +1,40 @@
 import {placeholderPropertyObj} from "./properties/placeholderPropertyObj.js"
 import {propertyForSaleArr} from "./properties/propertyForSaleArr.js"
 
-function test(){
-    const property = propertyForSaleArr.map(function(e){
-        return e
-    })
-    console.log(property)
+function selectIfStateAvaible(){
+    // console.log(propertyForSaleArr)
+    // propertyForSaleArr.forEach(function(e){
+    //     console.log(e)
+    // })
+    // const properties = propertyForSaleArr.map(function(e){
+    //     return e.comment
+    // })
+    // console.log(properties)
+
 }
-test()
-// function getPropertyHtml() {
+
+function totalSize(params=[]){
+    const totalSum = params.reduce(function(prev, cur){
+        return prev + cur
+    },0)
+    return totalSum
+}
+
+function getPropertyHtml() {
+    const property = propertyForSaleArr.map(function(e){
+        return `
+        <section class="card">
+            <img src="/images/${e.image}">
+            <div class="card-right">
+                <h2>${e.propertyLocation}</h2>
+                <h3>${e.priceGBP}</h3>
+                <p>${e.comment}</p>
+                <h3>${totalSize(e.roomsM2)}m&sup2;</h3>
+            </div>
+        </section> `
+    }).join("")
+return property
+
 /*
 SUPER CHALLENGE 💪
 
@@ -37,7 +63,8 @@ This is the HTML template 👇. Replace everything in UPPERCASE with property da
     </div>
 </section> 
 */
-// }
+}
 
 /***** Modify 👇 by adding an argument to the function call ONLY. *****/
-// document.getElementById('container').innerHTML = getPropertyHtml()
+document.getElementById('container').innerHTML = getPropertyHtml()
+
