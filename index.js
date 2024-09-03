@@ -1,7 +1,14 @@
-import {placeholderPropertyObj} from './properties/placeholderPropertyObj'
-import {propertyForSaleArr} from './properties/propertyForSaleArr'
-console.log(placeholderPropertyObj)
-function getPropertyHtml() {
+import {placeholderPropertyObj} from "./properties/placeholderPropertyObj"
+import {propertyForSaleArr} from "./properties/propertyForSaleArr"
+
+function test(){
+    const property = propertyForSaleArr.map(function(e){
+        return e
+    })
+    console.log(property)
+}
+test()
+// function getPropertyHtml() {
 /*
 SUPER CHALLENGE 💪
 
@@ -30,7 +37,7 @@ This is the HTML template 👇. Replace everything in UPPERCASE with property da
     </div>
 </section> 
 */
-}
+// }
 
 /***** Modify 👇 by adding an argument to the function call ONLY. *****/
-document.getElementById('container').innerHTML = getPropertyHtml()
+// document.getElementById('container').innerHTML = getPropertyHtml()
