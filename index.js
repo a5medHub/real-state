@@ -1,5 +1,5 @@
-import {placeholderPropertyObj} from "./properties/placeholderPropertyObj"
-import {propertyForSaleArr} from "./properties/propertyForSaleArr"
+import {placeholderPropertyObj} from "./properties/placeholderPropertyObj.js"
+import {propertyForSaleArr} from "./properties/propertyForSaleArr.js"
 
 function test(){
     const property = propertyForSaleArr.map(function(e){
