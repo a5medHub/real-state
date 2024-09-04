@@ -1,13 +1,15 @@
 import {placeholderPropertyObj} from "./properties/placeholderPropertyObj.js"
 import {propertyForSaleArr} from "./properties/propertyForSaleArr.js"
 
+// this function role is to make the sum calculation of an array in the json file using .reduce method
 function totalSize(params=[]){
     const totalSum = params.reduce(function(prev, cur){
         return prev + cur
-    },0)
+    },0) // 0 is to set the first prev value , and to make it loop throw the index of the array not the objects
     return totalSum
 }
 
+// render function
 function getPropertyHtml(propertyParams=placeholderPropertyObj) {
     propertyParams = propertyForSaleArr
     if(propertyParams == propertyForSaleArr){
