@@ -1,18 +1,6 @@
 import {placeholderPropertyObj} from "./properties/placeholderPropertyObj.js"
 import {propertyForSaleArr} from "./properties/propertyForSaleArr.js"
 
-function selectIfStateAvaible(){
-    // console.log(propertyForSaleArr)
-    // propertyForSaleArr.forEach(function(e){
-    //     console.log(e)
-    // })
-    // const properties = propertyForSaleArr.map(function(e){
-    //     return e.comment
-    // })
-    // console.log(properties)
-
-}
-
 function totalSize(params=[]){
     const totalSum = params.reduce(function(prev, cur){
         return prev + cur
@@ -20,20 +8,34 @@ function totalSize(params=[]){
     return totalSum
 }
 
-function getPropertyHtml() {
-    const property = propertyForSaleArr.map(function(e){
+function getPropertyHtml(propertyParams=placeholderPropertyObj) {
+    propertyParams = propertyForSaleArr
+    if(propertyParams == propertyForSaleArr){
+        const property = propertyParams.map(function(e){
+            return `
+            <section class="card">
+                <img src="/images/${e.image}">
+                <div class="card-right">
+                    <h2>${e.propertyLocation}</h2>
+                    <h3>${e.priceGBP}</h3>
+                    <p>${e.comment}</p>
+                    <h3>${totalSize(e.roomsM2)}m&sup2;</h3>
+                </div>
+            </section> `
+        }).join("")
+        return property
+    }else{
         return `
-        <section class="card">
-            <img src="/images/${e.image}">
-            <div class="card-right">
-                <h2>${e.propertyLocation}</h2>
-                <h3>${e.priceGBP}</h3>
-                <p>${e.comment}</p>
-                <h3>${totalSize(e.roomsM2)}m&sup2;</h3>
-            </div>
-        </section> `
-    }).join("")
-return property
+            <section class="card">
+                <img src="/images/${placeholderPropertyObj.image}">
+                <div class="card-right">
+                    <h2>${placeholderPropertyObj.propertyLocation}</h2>
+                    <h3>${placeholderPropertyObj.priceGBP}</h3>
+                    <p>${placeholderPropertyObj.comment}</p>
+                    <h3>${totalSize(placeholderPropertyObj.roomsM2)}m&sup2;</h3>
+                </div>
+            </section> `
+    }
 
 /*
 SUPER CHALLENGE 💪
@@ -66,5 +68,5 @@ This is the HTML template 👇. Replace everything in UPPERCASE with property da
 }
 
 /***** Modify 👇 by adding an argument to the function call ONLY. *****/
-document.getElementById('container').innerHTML = getPropertyHtml()
+document.getElementById('container').innerHTML = getPropertyHtml(placeholderPropertyObj)
 
